@@ -1,0 +1,281 @@
+﻿@model HomeController
+@{
+    ViewData["Title"] = "TheCloudBill Contest - Home Page   ";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Howdy, @ViewBag.Email!</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+
+
+<div>
+    <div class="row mt-3">
+        <div class="col-md-6">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Penetration testing</h3>
+                </div>
+                <div class="card-body">
+                    <b> Find the secret key on this site: <a href="https://challenge.thecloudbill.com/" target="_blank">challenge.thecloudbil.com</a> </b><br /><br />
+
+                    Brief about the challenge :<br />
+                    In this first contest, You have to find the content of the secret file which is on <a href="https://challenge.thecloudbill.com/" target="_blank">the site </a>. Application is intentionally vulnerable and using that vulnerability you have to find the secret key.<br />
+                    <br /><br />
+                    <b>First step </b><br />To get started for this, you have to register yourself. As you are seeing this, you already have registered. So skip for the second step.<br />
+                    <br />
+                    <b>Second Step </b><br />On 15th August onwards,  <a href="https://challenge.thecloudbill.com/" target="_blank">the site </a> will go live. Sign in using registered email and password.<br />
+                    <br />
+                    <b>Third Step </b><br />Pen test the application and find the secret key.<br />
+                    <br />
+                    <b>Fourth Step </b><br /> If you find the key then upload it here
+                    <br />  <br />
+                    <b>Hint : </b>Google Kar lo 😉
+                    <br />
+                    <br /><br />
+
+                    <b>Important:</b> <br />This is not the site for the penetration testings. The actual vulnerable site is <a href="https://challenge.thecloudbill.com/" target="_blank">here</a>. (Will be live on 15th August)<br />
+
+                    <br />
+                    <b>Instructions</b>:<br />
+                    No SQL Injections or XSS will work<br />
+                    Don't use DOS or DDOS attack if found then you will be disqualified<br />
+                    Application it self written in python Django framework<br />
+                </div>
+                <div class="card-footer">
+
+
+                    @if (ViewBag.submitted)
+                    {
+                        <p>You have submitted the contest</p> }
+
+                    else
+                    {<!-- Button trigger modal -->
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+                            Submit Secret Key
+                        </button>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-6">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Know Your Emails</h3>
+                </div>
+                <div class="card-body">
+                    Know Your Emails<br />
+                    <br />
+                    Brief about the challenge :<br />
+                    <br />
+                    As we all know that WhatsApp has a nice feature that tells us whether the recipient has opened your message or not. (not to mention turn offing blue tick 😉)<br />
+                    <br />
+                    But how about emails??<br /><br />
+                    Is there any way to find out whether the recipient had opened your mail or not.<br />
+                    <br />
+                    Of course, the solution exists<br /><br />
+                    And you have to find it in this challenge<br /><br />
+
+                    You have to create a solution for this real-world problem by using the programming language of your choice.<br />
+                    <br />
+                    Instructions<br />
+
+                    If you think you have the solution then upload it here.<br />
+                    You can include anything here but make sure to zip everything in one file.<br />
+                    <br />
+                    You can use google's solution, but make sure you try and test it before uploading here<br />
+
+                    <br /><br /><br /><br /><br /><br />
+
+
+
+                </div>
+                <div class="card-footer">
+
+                    @if (ViewBag.submittedfile)
+                    {
+                        <p>You have submitted the contest</p>
+                    }
+                    else
+                    {<!-- Button trigger modal -->
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter1">
+                            Submit My Code
+                        </button>
+
+                    }
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Certificate</h3>
+                </div>
+                <div class="card-body">
+                    You will get <a href="../home/certificate" target="_blank"> participate certificate</a> and if you successfully complate the contest then you will also get completion certificate and chance to get Reliance Gift Voucher worth 500 Rs.
+                    <button type="button" class="btn btn-primary btn-sm" onclick="Prints();">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+</div>
+
+<div id="divprint" class="html-content" style="height:595px;width:900px;">
+    <div style=" padding:5px 10px 10px 5px; text-align:center;">
+        <div style=" padding:20px; text-align:center; border: 5px solid #90c2f8; background-image:url('../lib/cloud2.png'); background-repeat:no-repeat">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="~/lib/TheCloudBill2.png" style="height:100px" />
+                </div>
+                <div class="col-md-9">     <span style="font-size:40px; font-weight:bold;">CERTIFICATE OF PARTICIPATION</span></div>
+            </div>
+            <span style="font-size:20px"><i>This is to certify that</i></span>
+            <br><br />
+                <span style="font-size:25px">@ViewBag.Email</span><br /><br />
+            <span style="font-size:20px"><i> has participated in TheCloudBill team presents</i></span><br /><br />
+            <span style="font-size: 30px; font-weight:bold;">"TheCloudBill Contest 2020"</span><br /><br />
+            <span style="font-size:20px"><i>on date</i><b> 20th to 24th August, 2020</b></span>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/lib/tTCB.png" style="height:70px;" class="img-fluid" />
+
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    Kishan<br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <br />
+                    <b>thecloudbill.com</b>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    ____________________________<br />
+                    <b>Auth. Signatory</b>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function Prints() {
+        var printWin = window.open('', '', 'left=0,top=0,width=1400,height=800,status=0');
+        printWin.document.write(document.getElementById("divprint").innerHTML);
+        printWin.document.close();
+        printWin.focus();
+        printWin.print();
+        printWin.close();
+    }
+</script>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Submit Secret Key</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-controller="Home" asp-action="Contest1">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.FirstContestKey">Secret Key</label>
+                        <input asp-for="Input.FirstContestKey" class="form-control" />
+                        <span asp-validation-for="Input.FirstContestKey" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.PossibleSolution">Vulnerability Name</label>
+                        <input asp-for="Input.PossibleSolution" class="form-control" />
+                        <span asp-validation-for="Input.PossibleSolution" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Code">Code you use</label>
+                        <input asp-for="Input.Code" class="form-control" />
+                        <span asp-validation-for="Input.Code" class="text-danger"></span>
+                    </div>
+                    <button id="submission" type="submit" class="btn btn-primary" style="margin-bottom:10px;" onclick="this.form.submit(); this.disabled = true; this.value = 'Submitting the form';">Register</button>
+                </form>
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<!-- Modal1 -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Email Read Challenge</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Contest2">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <p>Upload one or more files using this form:</p>
+                            <input type="file" name="files" class="btn btn-outline-primary" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input type="submit" class="btn btn-outline-success" value="Upload" onclick="this.form.submit(); this.disabled = true; this.value = 'Submitting the form';" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+@*<script>
+        $("#submission").click(function () {
+            $.ajax({
+                type: "POST",
+                url: '/OnPost',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function () { alert('Success'); }
+            });
+        });
+
+    </script>*@
+

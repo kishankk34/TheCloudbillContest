@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewData["Title"] = "certificate";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<button type="button" class="btn btn-primary btn-sm" onclick="Prints();">
+    <i class="fas fa-edit"></i>
+    Print
+</button>
+<button type="button" class="btn btn-primary btn-sm" onclick="CreatePDFfromHTML();">
+    <i class="fas fa-edit"></i>
+    Print
+</button>
+<div id="divprint" class="html-content" style="height:595px;width:900px;">
+    <div style=" padding:5px 10px 10px 5px; text-align:center;">
+        <div style=" padding:20px; text-align:center; border: 5px solid #90c2f8; background-image:url('../lib/cloud2.png'); background-repeat:no-repeat">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="~/lib/TheCloudBill2.png" style="height:100px" />
+                </div>
+                <div class="col-md-9">     <span style="font-size:40px; font-weight:bold;">CERTIFICATE OF PARTICIPATION</span></div>
+            </div>
+            <span style="font-size:20px"><i>This is to certify that</i></span>
+            <br><br />
+            <span style="font-size:25px">Kishan kachhadiya</span><br />
+            <span style="font-size:25px">_______________________________________</span><br /><br />
+            <span style="font-size:20px"><i> has participated in TheCloudBill team presents</i></span><br /><br />
+            <span style="font-size: 30px; font-weight:bold;">"TheCloudBill Contest 2020"</span><br /><br />
+            <span style="font-size:20px"><i>on date</i><b> 20th to 24th August, 2020</b></span>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/lib/tTCB.png" style="height:70px;" class="img-fluid" />
+
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    Kishan<br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <br />
+                    <b>thecloudbill.com</b>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    ____________________________<br />
+                    <b>Auth. Signatory</b>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function Prints() {
+        var printWin = window.open('', '', 'left=0,top=0,width=800,height=800,status=0');
+        printWin.document.write(document.getElementById("divprint").innerHTML);
+        printWin.document.close();
+        printWin.focus();
+        printWin.print();
+        printWin.close();
+    }
+</script>
+
+
+
+
+<script type="text/javascript">
+    function CreatePDFfromHTML() {
+        var HTML_Width = 900;
+        var HTML_Height = 595;
+        var top_left_margin = 5;
+        var PDF_Width = HTML_Width + (top_left_margin * 2);
+        var PDF_Height = HTML_Height + (top_left_margin * 2);
+        var canvas_image_width = HTML_Width;
+        var canvas_image_height = HTML_Height;
+
+        var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+        html2canvas($(".html-content")[0]).then(function (canvas) {
+            var imgData = canvas.toDataURL("../lib/cloud2.png", 1.0);
+            var pdf = new jsPDF('l', 'pt', [PDF_Width, PDF_Height]);
+            pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+            for (var i = 1; i <= totalPDFPages; i++) {
+                pdf.addPage(PDF_Width, PDF_Height);
+                pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
+            }
+            pdf.save("Your_PDF_Name.pdf");
+            //$(".html-content").hide();
+        });
+    }
+</script>
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+<button type="button" id="pdfDownloader">Download</button>
+<div id="printDiv" style=" text-align:center; border: 5px solid #90c2f8; height:620px;width:1000px; background-image:url('../lib/cloud2.png');">
+    <div class="row">
+        <div class="col-3">
+            <img src="~/lib/TheCloudBill2.png" style="height:100px" />
+        </div>
+        <div class="col-9">     <span style="font-size:40px; font-weight:bold;">CERTIFICATE OF PARTICIPATION</span></div>
+    </div>
+    <span style="font-size:20px"><i>This is to certify that</i></span>
+    <br><br />
+    <span style="font-size:25px">Kishan kachhadiya</span><br />
+    <span style="font-size:25px">_______________________________________</span><br /><br />
+    <span style="font-size:20px"><i> has participated in TheCloudBill team presents</i></span><br /><br />
+    <span style="font-size: 30px; font-weight:bold;">"TheCloudBill Contest 2020"</span><br /><br />
+    <span style="font-size:20px"><i>on date</i><b> 20th to 24th August, 2020</b></span>
+    <div class="row">
+        <div class="col-4">
+            <img src="~/lib/tTCB.png" style="height:70px;" class="img-fluid" />
+
+        </div>
+        <div class="col-4">
+
+        </div>
+        <div class="col-4">
+            Kishan<br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <br />
+            <b>thecloudbill.com</b>
+        </div>
+        <div class="col-4">
+
+        </div>
+        <div class="col-4">
+            ____________________________<br />
+            <b>Auth. Signatory</b>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //pdf 다운로드
+        $("#pdfDownloader").click(function () {
+
+            html2canvas(document.getElementById("printDiv"), {
+                onrendered: function (canvas) {
+
+                    var imgData = canvas.toDataURL('image/png');
+                    console.log('Report Image URL: ' + imgData);
+                    var doc = new jsPDF('l', 'mm', [297, 210]); //210mm wide and 297mm high
+
+                    doc.addImage(imgData, 'PNG', 10, 10);
+                    doc.save('sample.pdf');
+                }
+            });
+
+        });
+
+
+    })
+</script>
+
+
+<a asp-action="wc" asp-controller="Home">Download</a>
+<br />
+<iframe src="../Home/wc" height="1200" width="900"></iframe>

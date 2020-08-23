@@ -1,0 +1,57 @@
+﻿@page
+@model ResendEmailConfirmationModel
+@{
+    //ViewData["Title"] = "Resend email confirmation";
+}
+
+<!--<h1>@ViewData["Title"]</h1>
+<h4>Enter your email.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Resend</button>
+            <div class="form-group">
+                <p>
+                    <a id="login-page" asp-page="./Login">Go To Login Page</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>-->
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-4 col-md-6 col-sm-10">
+            <div class="card mt-5 shadow">
+                <div class="card-header p-4 text-center text-white bg-primary">
+                    <h3>TheCloudBill</h3>
+                </div>
+                <div class="card-body p-4 bg-light ">
+                    <span class="text-center"><b>Enter your email to resend confirmation mail</b></span>
+                    <form method="post" class="mt-4">
+                        <div class="form-group">
+                            <label asp-for="Input.Email"></label>
+                            <input asp-for="Input.Email" class="form-control" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary">Submit</button><br />OR<br />
+                            <a class="btn btn-primary" id="login-page" asp-page="./Login">Go to Login Page</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

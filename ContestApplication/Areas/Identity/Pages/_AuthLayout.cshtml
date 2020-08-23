@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@*<div class="body_body">
+        <canvas id="canvas" data-image="http://unsplash.it/g/450/200/?random=1"></canvas>
+    </div>*@
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content">
+    <div class="row mt-3">
+        <div class="col-lg-6 col-md-4 col-sm-12 align-self-center">
+            <div class="row justify-content-center mt-3">
+                <img src="~/lib/TheCloudBill.png" style="height:500px; width:500px;" />
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-8 col-sm-12">
+            <div class="card login-logout-tab shadow" style="margin-top:60px; margin-bottom:85px; border-radius:15px;">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" href='/Identity/Account/Login'><b>Sign In</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href='/Identity/Account/Register'><b>Sign Up</b></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-content">
+                    <div class="row justify-content-center p-3">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+<!--<div class="row">
+    <div class="col-lg-6 col-md-4 col-sm-12 align-self-center">
+        <div class="row justify-content-center mt-3">
+            <img src="~/lib/tTCB.png" style="height:130px; width:130px;" />
+        </div>
+        <div class="row mt-3 justify-content-center"><h5>TheCloudBill team welcomes you!</h5></div>
+    </div>
+    <div class="col-lg-6 col-md-8 col-sm-12">
+        <div class="card login-logout-tab shadow" style="margin-top:60px; margin-bottom:85px; border-radius:15px;">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href='/Identity/Account/Login'><b>Sign In</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/Identity/Account/Register'><b>Sign Up</b></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-content">
+                <div class="row justify-content-center p-3">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+
+@section Scripts{
+    @RenderSection("Scripts", required: false)
+    <script>
+        $(function () {
+            var current = location.pathname;
+            $('.nav-tabs li a').each(function () {
+                var $this = $(this);
+                if (current.indexOf($this.attr('href')) !== -1) {
+                    $this.addClass('active');
+                }
+            })
+        })
+    </script> }
